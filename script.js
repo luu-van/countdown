@@ -1,15 +1,15 @@
-const daysEl = document.getElementById('days');
-const hoursEl = document.getElementById('hours');
-const minsEl = document.getElementById('mins');
-const secondsEl = document.getElementById('seconds');
+const daysEl = document.getElementById("days");
+const hoursEl = document.getElementById("hours");
+const minsEl = document.getElementById("mins");
+const secondsEl = document.getElementById("seconds");
 
-const newYears = "1 Jan 2022";
+const newOlds = "27 Mar 2021";
 
 function countDown() {
-    const newYearsDate = new Date(newYears);
+    const newOldsDate = new Date(newOlds);
     const currentDate = new Date();
 
-    const totalSeconds = (newYearsDate - currentDate) / 1000;
+    const totalSeconds = (newOldsDate - currentDate) / 1000;
 
     const days = Math.floor(totalSeconds / 3600 / 24);
     const hours = Math.floor(totalSeconds / 3600) % 24;
@@ -17,8 +17,9 @@ function countDown() {
     const seconds = Math.floor(totalSeconds) % 60;
 
     //console.log(newYearsDate - currentDate);
+    //console.log(days, hours, mins, seconds);
 
-    daysEl.innerHTML = days;
+    daysEl.innerHTML = formatTime(days);
     hoursEl.innerHTML = formatTime(hours);
     minsEl.innerHTML = formatTime(mins);
     secondsEl.innerHTML = formatTime(seconds);
